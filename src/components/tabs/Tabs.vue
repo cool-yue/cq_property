@@ -57,7 +57,11 @@ export default {
     cursor: pointer;
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow:hidden;
+    overflow: hidden;
+}
+
+.tabs__tab:hover {
+    background-color: #fff;
 }
 
 .tabs__tab--active {

@@ -72,15 +72,14 @@ describe("sideNav", () => {
             expect(domItem_first.classList.contains(".side-nav__item--active")).to.be.false;
             expect(domItem_second.classList.contains(".side-nav__item--active")).to.be.false;
             expect(domItem_last.classList.contains(".side-nav__item--active")).to.be.true;
-        });
-
-        domItem_second.click();
-        expect(cb.calledOnce).to.be.true;
-        expect(cb.calledWith("菜单1")).to.be.true;
-        Vue.nextTick(function () {
-            expect(domItem_first.classList.contains(".side-nav__item--active")).to.be.false;
-            expect(domItem_second.classList.contains(".side-nav__item--active")).to.be.true;
-            expect(domItem_last.classList.contains(".side-nav__item--active")).to.be.false;
+            domItem_second.click();
+            expect(cb.calledOnce).to.be.true;
+            expect(cb.calledWith("菜单1")).to.be.true;
+            Vue.nextTick(function () {
+                expect(domItem_first.classList.contains(".side-nav__item--active")).to.be.false;
+                expect(domItem_second.classList.contains(".side-nav__item--active")).to.be.true;
+                expect(domItem_last.classList.contains(".side-nav__item--active")).to.be.false;
+            });
         });
     });
 });

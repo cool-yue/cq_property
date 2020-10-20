@@ -15,7 +15,7 @@ describe('NomalButton', () => {
         const classList = button_dom.classList;
         const buttonText = button_dom.textContent;
 
-        expect(classList.contains("normal_button_default")).to.be.true;
+        expect(classList.contains("normal-button--default")).to.be.true;
         expect(buttonText).to.equal("default");
     });
     it("接收type参数,能够渲染对应的button样式", () => {
@@ -29,6 +29,6 @@ describe('NomalButton', () => {
         vm.$mount();
         const classList = vm.$el.classList;
 
-        expect(classList.contains("normal_button_primary")).to.be.true;
+        expect(classList.contains("normal-button--primary")).to.be.true;
     });
 });

@@ -2,12 +2,19 @@
     <div class="side-nav">
         <div
             v-for="(item, i) in items"
-            :class="['side-nav__item']"
+            :class="['side-nav__item',{'side-nav__item--active': i === activeIndex}]"
+            :key="i"
+            @click="handleClick(i, item.title)"
         >{{item.title}}</div>
     </div>
 </template>
 <script>
 export default {
+    data() {
+        return {
+            activeIndex: 0
+        };
+    },
     props: {
         items: {
             type: Array,
@@ -19,6 +26,12 @@ export default {
             type: String,
             default: "200px"
         }
+    },
+    methods: {
+        handleClick(index, content) {
+            this.activeIndex = index;
+            this.$emit("on-click-item", content);
+        }
     }
 };
 </script>
@@ -28,13 +41,18 @@ export default {
 }
 .side-nav__item {
     color: rgb(175,175,175);
-    font-size: 14px;
-    line-height: 14px;
-    padding: 12px 20px;
+    font-size: 18px;
+    line-height: 24px;
+    padding: 30px 20px;
     border-top: 1px solid rgb(88,88,88);
     text-align: center;
+    cursor: pointer;
 }
+.side-nav__item:hover {
+    background-color: rgb(29,91,128);
+} 
 .side-nav__item--active {
+    background-color: rgb(29,91,128);
     color: #fff;
 }
 </style>

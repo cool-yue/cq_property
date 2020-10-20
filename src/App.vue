@@ -12,7 +12,7 @@
         <h4>Tabs</h4>
         <tabs :items="tabItems"></tabs>
     </div>
-    <div style="width:200px;">
+    <div style="width:150px;">
         <h4>SideNav</h4>
         <side-nav :items="navItems"></side-nav>
     </div>
@@ -30,13 +30,25 @@ import SideNav from "./components/side_nav/SideNav.vue";
         tabItems: ["景观", "公共设施", "厂房", "监测设备", "污水处理设备", "管网", "办公设备", "日常耗材", "其他"],
         navItems: [
           {
-            title: "菜单1"
+            title: "资产单位"
           },
           {
-            title: "菜单2"
+            title: "资产分类"
           },
           {
-            title: "菜单3"
+            title: "资产状态"
+          },
+          {
+            title: "资产来源"
+          },
+          {
+            title: "折旧配置"
+          },
+          {
+            title: "权限配置"
+          },
+          {
+            title: "流程配置"
           }
         ]
       };
