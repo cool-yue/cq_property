@@ -1,6 +1,4 @@
 import Tabs from "../../../components/tabs/Tabs.vue";
-import chai from "chai";
-import sinon from "sinon";
 import Vue from "vue";
 
 const expect = chai.expect;

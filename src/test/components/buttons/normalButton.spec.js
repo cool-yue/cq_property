@@ -1,7 +1,5 @@
 import NomalButton from "../../../components/buttons/NormalButton.vue";
 import Vue from "vue";
-import chai from "chai";
-import sinon from "sinon";
 const expect = chai.expect;
 const should = chai.should();
 

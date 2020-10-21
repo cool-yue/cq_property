@@ -4,8 +4,8 @@
             v-for="(item, i) in items"
             :class="['side-nav__item',{'side-nav__item--active': i === activeIndex}]"
             :key="i"
-            @click="handleClick(i, item.title)"
-        >{{item.title}}</div>
+            @click="handleClick(i, item.text)"
+        >{{item.text}}</div>
     </div>
 </template>
 <script>
@@ -50,7 +50,7 @@ export default {
 }
 .side-nav__item:hover {
     background-color: rgb(29,91,128);
-} 
+}
 .side-nav__item--active {
     background-color: rgb(29,91,128);
     color: #fff;

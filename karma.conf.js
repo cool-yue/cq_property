@@ -1,4 +1,4 @@
-const webpackConfig = require('./build/webpack.dev.js');
+const webpackConfig = require('./build/webpack.test.js');
 
 module.exports = function(config) {
     config.set({
@@ -12,6 +12,10 @@ module.exports = function(config) {
       coverageReporter: {
         dir: './coverage',
         reporters: [{ type: 'lcov', subdir: '.' }, { type: 'text-summary' }]
+      },
+      // 不要中间编译的信息
+      webpackMiddleware: {
+        noInfo: true
       },
       browsers: ['Chrome']
     });
