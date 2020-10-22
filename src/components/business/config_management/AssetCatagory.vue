@@ -13,7 +13,13 @@
                 <normal-button is-plain type="primary">导出</normal-button>
                 <normal-button is-plain type="primary">新增</normal-button>
             </div>
-            <Table border :columns="tableColumns" :data="tableData"></Table>
+            <Table border :columns="tableColumns" :data="tableData">
+                <template slot-scope="{row, index}" slot="action">
+                    <a class="asset-catagory__update">编辑</a>
+                    <a class="asset-catagory__delete">删除</a>
+                </template>
+               
+            </Table>
             <Page :total="50" style="float:right;margin-top:2rem;"></Page>
         </div>
     </div>
@@ -46,6 +52,11 @@ export default {
                 {
                     title: "修改时间",
                     key: "updateAt"
+                },
+                {
+                    title: "操作",
+                    slot: "action",
+                    align: 'center'
                 }
             ],
             tableData:[
@@ -106,6 +117,17 @@ export default {
 
 .asset-catagory__tabs {
 }
+
+.asset-catagory__update {
+    text-decoration: underline;
+    margin-right: 2rem;
+}
+
+.asset-catagory__delete {
+    text-decoration: underline;
+    color: red;
+}
+
 
 
 .asset-catagory__buttons {

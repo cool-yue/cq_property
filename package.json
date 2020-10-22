@@ -52,6 +52,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "highcharts": "^8.2.2",
     "view-design": "^4.4.0",
     "vue": "^2.6.11"
   }

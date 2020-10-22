@@ -20,6 +20,12 @@ deicding what to test by using a `concept of a component contract`,what is it? w
 
 a good component unit test should always trigger an input and assert that the component generates the correct output.you should write tests from the perspective of a developer who's using the component but is unware of how the component functionality in implemented.
 
+
+**Avoiding Boolean assertions**： When they fail, the assertion
+error isn’t clear about why the test failed:** “expected false to equal true.”**
+
+
+
 ## input list ##
 
 1.component props,it can be feed by PropsData property in Vue option.

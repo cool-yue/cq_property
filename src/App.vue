@@ -35,6 +35,13 @@
     <div>
         <Table :columns="tableColumns"></Table>
     </div>
+    <h4>highcharts</h4>
+    <div>
+        <high-charts :options="chartOptions"></high-charts>
+    </div>
+    <div>
+      <div id="chart"></div>
+    </div>
   </div>
 </template>
 
@@ -44,14 +51,17 @@ import Tabs from "./components/tabs/Tabs.vue";
 import SideNav from "./components/side_nav/SideNav.vue";
 import TopNav from "./components/top_nav/TopNav.vue";
 import PIcon from "./components/icons/Icon.vue";
+import HighCharts from "@compos/highcharts/Highcharts.vue";
+import options from "@compos/highcharts/chartOptions.js";
   export default {
+    name:"App",
     data() {
       return {
         currentComponent: "Login",
         tabItems: ["景观", "公共设施", "厂房", "监测设备", "污水处理设备", "管网", "办公设备", "日常耗材", "其他"],
         navItems: [
           {
-            text: "资产单位"
+            text: "资产单"
           },
           {
             text: "资产分类"
@@ -107,7 +117,8 @@ import PIcon from "./components/icons/Icon.vue";
               title: "Age",
               key: "age"
             }
-          ]
+          ],
+          chartOptions: ""
       };
     },
     methods: {
@@ -126,11 +137,14 @@ import PIcon from "./components/icons/Icon.vue";
       Tabs,
       SideNav,
       TopNav,
-      PIcon
+      PIcon,
+      HighCharts
+    },
+    beforeMount() {
+      this.chartOptions = JSON.stringify(options);
     },
     mounted() {
-      console.log(this.$parent);
-      console.log(this.constructor.config);
+      console.log(options);
     }
   };
 </script>
