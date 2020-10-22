@@ -29,4 +29,17 @@ describe('NomalButton', () => {
 
         expect(classList.contains("normal-button--primary")).to.be.true;
     });
+    it("is-plain", () => {
+        const Constructor = Vue.extend(NomalButton);
+        const vm = new Constructor({
+            propsData: {
+                isPlain: true
+            }
+        });
+
+        vm.$mount();
+        const classList = vm.$el.classList;
+
+        expect(classList.contains("is-plain")).to.be.true;
+    });
 });

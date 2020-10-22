@@ -1,5 +1,5 @@
 <template>
-    <button :class="[buttonClassType, 'normal-button']" @click="handleClick"><slot>default</slot></button>
+    <button :class="[buttonClassType, 'normal-button', {'is-plain':isPlain}]" @click="handleClick"><slot>default</slot></button>
 </template>
 <script>
 const classPrefix = "normal-button--";
@@ -8,6 +8,10 @@ export default {
         type: {
             type: String,
             default: "default"
+        },
+        isPlain: {
+            type: Boolean,
+            default: false
         }
     },
     computed: {
@@ -42,9 +46,31 @@ export default {
     outline: 0;
 }
 
-button.isRound {
-    padding: 12px 23px;
-    border-radius: 20px;
+.is-plain {
+    padding: 0.5em 2.5em;
+}
+
+.normal-button--success.is-plain {
+    background-color: #f0f9eb;
+    color: #67c23a;
+    border-color: #c2e7b0;
+}
+
+.normal-button--primary.is-plain {
+    background-color: #ecf5ff;
+    color: #409eff;
+    border-color: #b3d8ff;
+}
+.normal-button--danger.is-plain {
+    color: #f56c6c;
+    background-color: #fef0f0;
+    border-color: #fbc4c4;
+}
+
+.normal-button--warning.is-plain {
+    color: #e6a23c;
+    background-color: #fdf6ec;
+    border-color: #f5dab1
 }
 
 .normal-button--active {

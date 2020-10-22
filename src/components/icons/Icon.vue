@@ -1,6 +1,6 @@
 <template>
     <span
-        :class="['p-icon','p-icon--' + icon]"
+        :class="['p-icon','p-icon--' + icon,{'is-round': isRound}]"
         :style="{width:size, height:size}"
     ></span>
 </template>
@@ -15,6 +15,10 @@ export default {
         size: {
             type: String,
             default: "1rem"
+        },
+        isRound: {
+            type: Boolean,
+            default: false
         }
     }
 };
@@ -24,6 +28,10 @@ export default {
     display: inline-block;
     background-repeat: no-repeat;
     background-size: 100% 100%;
+}
+.p-icon.is-round {
+    border-radius: 50%;
+    background-color: blue;
 }
 /*
 .p-icon::before {

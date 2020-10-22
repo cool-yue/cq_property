@@ -1,12 +1,20 @@
 <template>
   <div id="appContainer">
     <div>
-        <h4>Button</h4>
+        <h4>normal-button</h4>
         <normal-button></normal-button>
         <normal-button type="primary" @click="aaa">primary</normal-button>
         <normal-button type="warning">warning</normal-button>
         <normal-button type="danger">danger</normal-button>
         <normal-button type="success">success</normal-button>
+    </div>
+    <div>
+        <h4>plain normal-button</h4>
+        <normal-button is-plain></normal-button>
+        <normal-button type="primary" is-plain>primary</normal-button>
+        <normal-button type="warning" is-plain>warning</normal-button>
+        <normal-button type="danger" is-plain>danger</normal-button>
+        <normal-button type="success" is-plain>success</normal-button>
     </div>
     <div>
         <h4>Tabs</h4>
@@ -22,7 +30,10 @@
     </div>
     <h4>Icon</h4>
     <div>
-        <p-icon icon="chevron-right" size="50px"></p-icon>
+        <p-icon icon="chevron-right" size="50px" is-round></p-icon>
+    </div>
+    <div>
+        <Table :columns="tableColumns"></Table>
     </div>
   </div>
 </template>
@@ -86,6 +97,16 @@ import PIcon from "./components/icons/Icon.vue";
             {
               text: "系统日志"
             }
+          ],
+          tableColumns: [
+            {
+              title: "Name",
+              key: "name",
+            },
+            {
+              title: "Age",
+              key: "age"
+            }
           ]
       };
     },
@@ -106,6 +127,10 @@ import PIcon from "./components/icons/Icon.vue";
       SideNav,
       TopNav,
       PIcon
+    },
+    mounted() {
+      console.log(this.$parent);
+      console.log(this.constructor.config);
     }
   };
 </script>

@@ -1,51 +1,100 @@
 <template>
 <div class="p-container">
     <header class="p-header">
-        <div class="p-header__title"></div>
+        <div class="p-header__title"><span>江津智慧水务 | 资产管理系统</span></div>
         <div class="p-header___nav">
+            <top-nav :items="topNavItems"></top-nav>
+        </div>
+        <div class="p-header__divide">|</div>
+        <div class="p-header__avatar">
+            <avatar icon="ios-person" size="large" style="color:white;margin-right:1rem;"></avatar>
+            <Dropdown trigger="click">
+                <a style="color:white;">admin<Icon type="md-arrow-dropright"></Icon></a>
+                <DropdownMenu slot="list">
+                    <DropdownItem>修改密码</DropdownItem>
+                    <DropdownItem>退出登录</DropdownItem>
+                </DropdownMenu>
+            </Dropdown>
         </div>
     </header>
     <section class="p-section__main">
         <aside class="p-sidebar">
             <side-nav :items="sideNavItems"></side-nav>
         </aside>
-        <main class="p-main"></main>
+        <main class="p-main">
+            <component :is="currentCompo"></component>
+        </main>
     </section>
 </div>
 </template>
 <script>
-import SideNav from "./components/side_nav/SideNav";
+import SideNav from "@compos/side_nav/SideNav.vue";
+import TopNav from "@compos/top_nav/TopNav.vue"
+import Tabs from "@compos/tabs/Tabs.vue";
+
+import AssetCatagory from "@config_management/AssetCatagory.vue";
 
 export default {
     data() {
         return {
+            currentCompo: "AssetCatagory",
             sideNavItems: [
                 {
-                    title: "资产单位"
+                    text: "资产单位"
                 },
                 {
-                    title: "资产分类"
+                    text: "资产分类"
                 },
                 {
-                    title: "资产状态"
+                    text: "资产状态"
                 },
                 {
-                    title: "资产来源"
+                    text: "资产来源"
                 },
                 {
-                    title: "折旧配置"
+                    text: "折旧配置"
                 },
                 {
-                    title: "权限配置"
+                    text: "权限配置"
                 },
                 {
-                    title: "流程配置"
+                    text: "流程配置"
                 }
-            ]
+            ],
+            topNavItems: [
+                {
+                    text: "配置管理"
+                },
+                {
+                    text: "资产入库"
+                },
+                {
+                    text: "资产流转变更"
+                },
+                {
+                    text: "资产折旧"
+                },
+                {
+                    text: "资产收支"
+                },
+                {
+                    text: "资产记录"
+                },
+                {
+                    text: "资产统计"
+                },
+                {
+                    text: "系统日志"
+                }
+            ],
+            tabItems: ["景观", "公共设施", "厂房", "监测设备", "污水处理设备", "管网", "办公设备", "日常耗材", "其他"],
         };
     },
     components: {
-        SideNav
+        SideNav,
+        TopNav,
+        Tabs,
+        AssetCatagory
     }
 };
 </script>
@@ -60,8 +109,22 @@ html, body {
     flex-direction: column;
 }
 .p-header {
-    height: 10%;
+    height: 90px;
+    box-sizing: border-box;
     background: rgb(91,165,248);
+    display:flex;
+    flex:0 0 90px;
+    padding: 0.5rem 3rem 3rem 1rem;
+}
+.p-header__title {
+    height:100%;
+    font-size:2rem;
+    color: #fff;
+    margin-right: auto;
+    line-height:74px;
+}
+.p-header___nav {
+    height: 100%;
 }
 .p-section__main {
     flex: 1;
@@ -75,6 +138,18 @@ html, body {
 .p-main {
     height: 100%;
     flex: 1;
+    padding: 4rem 1.5rem 0;
     background-color: white;
+}
+.p-header__avatar {
+    margin-left: auto;
+    line-height: 74px;
+}
+
+.p-header__divide {
+    margin-left: auto;
+    line-height: 74px;
+    font-size: 1.5rem;
+    color: #fff;
 }
 </style>

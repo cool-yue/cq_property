@@ -48,6 +48,11 @@ export default {
     text-align: center;
     cursor: pointer;
 }
+.side-nav__item:last-child {
+    border-bottom: 1px solid rgb(88,88,88);
+}
+
+
 .side-nav__item:hover {
     background-color: rgb(29,91,128);
 }

@@ -14,9 +14,9 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/, 
-                exclude: /node_modules/, 
-                loader: "babel-loader" 
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
             },
             {
                 test: /\.vue$/,
@@ -62,6 +62,10 @@ module.exports = {
     ],
     resolve: {
         extensions: ['.vue', '.js'],
-        mainFiles: ['index']
+        mainFiles: ['index'],
+        alias: {
+            "@compos": path.resolve(__dirname, "../src/components"),
+            "@config_management": path.resolve(__dirname, "../src/components/business/config_management")
+        }
     }
 };

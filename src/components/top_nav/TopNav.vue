@@ -54,8 +54,9 @@ export default {
     padding: 5px;
     box-sizing: border-box;
     border: 1px solid transparent;
-    border-radius: 4px;
-    margin-right:1rem;
+    border-radius: 16px;
+    margin-right:1.5rem;
+    font-size:1.2rem;
 }
 .top-nav__item:hover {
     background-color: rgb(177,211,252);
@@ -77,6 +78,8 @@ export default {
 }
 .top-nav__text {
     color: white;
+    line-height: 1;
+    flex: 1;
 }
 .top-nav__text {}
 </style>
