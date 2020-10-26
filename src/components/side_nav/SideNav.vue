@@ -30,7 +30,17 @@ export default {
     methods: {
         handleClick(index, content) {
             this.activeIndex = index;
-            this.$emit("on-click-item", content);
+            this.$emit("on-item-click", content);
+        }
+    },
+    mounted() {
+        if (this.items.length > 0) {
+            this.$emit("on-item-click", this.items[0].text);
+        }
+    },
+    watch: {
+        items() {
+            this.$emit("on-item-click", this.items[0].text);
         }
     }
 };

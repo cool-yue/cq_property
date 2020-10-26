@@ -4,7 +4,7 @@ import Vue from "vue";
 const expect = chai.expect;
 
 describe("sideNav", () => {
-    it("接受一个items对象数组,能够正确渲染侧边栏", () => {
+    it("接受一个items对象数组,能够正确渲染侧边栏,且第一次挂载会触发on-item-click传入正确参数", () => {
         const constructor = Vue.extend(SideNav);
         const items = [
             {
@@ -21,13 +21,16 @@ describe("sideNav", () => {
                 items
             }
         });
-
+        const cb = sinon.fake();
+        vm.$on("on-item-click", cb);
         vm.$mount();
         const dom = vm.$el;
         const selector = ".side-nav__item";
         const domItems = dom.querySelectorAll(selector);
         const length = domItems.length;
         expect(length).to.equal(2);
+        expect(cb.callCount).to.equal(1);
+        expect(cb.calledWith("菜单0")).to.equal(true);
         domItems.forEach((item, i) => {
             expect(item.textContent).to.equal(`菜单${i}`);
         });
@@ -56,7 +59,7 @@ describe("sideNav", () => {
 
         vm.$mount();
         const cb = sinon.fake();
-        vm.$on("on-click-item", cb);
+        vm.$on("on-item-click", cb);
         const dom = vm.$el;
         const selector = ".side-nav__item";
         const domItem_first = dom.querySelector(selector);

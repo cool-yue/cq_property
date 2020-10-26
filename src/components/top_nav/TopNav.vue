@@ -5,12 +5,13 @@
             :class="['top-nav__item', {'top-nav__item--active': i === activeItemIndex}]"
             @click="handleClick(item.text, i)"
         >
-            <i class="top-nav__icon"></i>
+            <p-icon :icon="item.src"></p-icon>
             <span class="top-nav__text">{{item.text}}</span>
         </div>
     </div>
 </template>
 <script>
+import PIcon from "@compos/icons/Icon.vue";
 export default {
     name: "top-nav",
     data() {
@@ -32,6 +33,9 @@ export default {
             this.$emit("on-item-click", content)
         }
     },
+    components: {
+        PIcon
+    },
     mounted() {
         if (this.items.length > 0) {
             this.$emit("on-item-click", this.items[0].text);
@@ -44,6 +48,7 @@ export default {
     min-height:75px;
     height: 100%;
     display: flex;
+    padding: 0.2rem 0;
 }
 .top-nav__item {
     height: 100%;
@@ -51,12 +56,15 @@ export default {
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    padding: 5px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:5px;
     box-sizing: border-box;
     border: 1px solid transparent;
     border-radius: 16px;
-    margin-right:1.5rem;
     font-size:1.2rem;
+    margin-right:1rem;
+    align-items: center;
 }
 .top-nav__item:hover {
     background-color: rgb(177,211,252);
@@ -69,17 +77,17 @@ export default {
     color:rgb(12,73,106);
 }
 .top-nav__item:hover .top-nav__text {
-    background-color: rgb(177,211,252);
     color: rgb(12,73,106);
 }
 
 .top-nav__icon {
-    height: 60%;
+    height: 50px;
 }
 .top-nav__text {
+    height:30px;
     color: white;
-    line-height: 1;
     flex: 1;
+
 }
 .top-nav__text {}
 </style>

@@ -1,9 +1,9 @@
 <template>
 <div class="p-container">
     <header class="p-header">
-        <div class="p-header__title"><span>江津智慧水务 | 资产管理系统</span></div>
+        <div class="p-header__title"><img src="./assets/images/header_title.png" style="height:100%;"></div>
         <div class="p-header___nav">
-            <top-nav :items="topNavItems"></top-nav>
+            <top-nav :items="topNavItems" @on-item-click="hanldeTopNavClick"></top-nav>
         </div>
         <div class="p-header__divide">|</div>
         <div class="p-header__avatar">
@@ -19,7 +19,7 @@
     </header>
     <section class="p-section__main">
         <aside class="p-sidebar">
-            <side-nav :items="sideNavItems"></side-nav>
+            <side-nav :items="sideNavItems" @on-item-click="handleSideClick"></side-nav>
         </aside>
         <main class="p-main">
             <component :is="currentCompo"></component>
@@ -33,6 +33,7 @@ import TopNav from "@compos/top_nav/TopNav.vue"
 import Tabs from "@compos/tabs/Tabs.vue";
 
 import AssetCatagory from "@config_management/AssetCatagory.vue";
+import ChartStatistics from "@assets_statistics/ChartStatistics.vue";
 
 export default {
     data() {
@@ -63,38 +64,70 @@ export default {
             ],
             topNavItems: [
                 {
-                    text: "配置管理"
+                    text: "配置管理",
+                    src: "#icon-peizhiguanli"
                 },
                 {
-                    text: "资产入库"
+                    text: "资产入库",
+                    src: "#icon-lunkuohua22_ruku"
                 },
                 {
-                    text: "资产流转变更"
+                    text: "资产流转变更",
+                    src: "#icon-biangengxiangguan"
                 },
                 {
-                    text: "资产折旧"
+                    text: "资产折旧",
+                    src: "#icon-tubiaozhizuomoban-108"
                 },
                 {
-                    text: "资产收支"
+                    text: "资产收支",
+                    src: "#icon-liushuizhangguanli-"
                 },
                 {
-                    text: "资产记录"
+                    text: "资产记录",
+                    src: "#icon-jilu"
                 },
                 {
-                    text: "资产统计"
+                    text: "资产统计",
+                    src: "#icon-tongji"
                 },
                 {
-                    text: "系统日志"
+                    text: "系统日志",
+                    src: "#icon-rizhiliebiao"
                 }
             ],
             tabItems: ["景观", "公共设施", "厂房", "监测设备", "污水处理设备", "管网", "办公设备", "日常耗材", "其他"],
         };
     },
+    methods: {
+        hanldeTopNavClick(tabName) {
+
+        },
+        hanldeTopNavClick(tabName) {
+            if (tabName === "资产统计") {
+                this.sideNavItems = [
+                    {
+                        text: "报表统计"
+                    },
+                    {
+                        text: "地图统计"
+                    }
+                ];
+            }
+        },
+        handleSideClick(tabName) {
+            console.log("sideNav", tabName);
+            if (tabName === "报表统计") {
+                this.currentCompo = "ChartStatistics";
+            }
+        }
+    },
     components: {
         SideNav,
         TopNav,
         Tabs,
-        AssetCatagory
+        AssetCatagory,
+        ChartStatistics
     }
 };
 </script>
@@ -109,18 +142,17 @@ html, body {
     flex-direction: column;
 }
 .p-header {
-    height: 90px;
+    height: 80px;
     box-sizing: border-box;
-    background: rgb(91,165,248);
+    background: #5ba5f8;
     display:flex;
-    flex:0 0 90px;
-    padding: 0.5rem 3rem 3rem 1rem;
+    padding-right: 3rem;
+    flex:0 0 80px;
 }
 .p-header__title {
     height:100%;
     font-size:2rem;
     color: #fff;
-    margin-right: auto;
     line-height:74px;
 }
 .p-header___nav {

@@ -30,7 +30,14 @@
     </div>
     <h4>Icon</h4>
     <div>
-        <p-icon icon="chevron-right" size="50px" is-round></p-icon>
+        <p-icon icon="#icon-rizhiliebiao"></p-icon>
+        <p-icon icon="#icon-liushuizhangguanli-"></p-icon>
+        <p-icon icon="#icon-jilu"></p-icon>
+        <p-icon icon="#icon-peizhiguanli"></p-icon>
+        <p-icon icon="#icon-biangengxiangguan"></p-icon>
+        <p-icon icon="#icon-lunkuohua22_ruku"></p-icon>
+        <p-icon icon="#icon-tubiaozhizuomoban-108"></p-icon>
+         <p-icon icon="#icon-tongji"></p-icon>
     </div>
     <div>
         <Table :columns="tableColumns"></Table>
@@ -42,6 +49,10 @@
     <div>
       <div id="chart"></div>
     </div>
+    <h4>环</h4>
+    <div>
+        <cprogress :cw="150" :id="1" :stroke-width='8' stroke-color="#F62256" bg="#FFDDDD" :percent="100"></cprogress>
+    </div>
   </div>
 </template>
 
@@ -52,6 +63,7 @@ import SideNav from "./components/side_nav/SideNav.vue";
 import TopNav from "./components/top_nav/TopNav.vue";
 import PIcon from "./components/icons/Icon.vue";
 import HighCharts from "@compos/highcharts/Highcharts.vue";
+import Cprogress from "@compos/highcharts/Circle.vue";
 import options from "@compos/highcharts/chartOptions.js";
   export default {
     name:"App",
@@ -138,7 +150,8 @@ import options from "@compos/highcharts/chartOptions.js";
       SideNav,
       TopNav,
       PIcon,
-      HighCharts
+      HighCharts,
+      Cprogress
     },
     beforeMount() {
       this.chartOptions = JSON.stringify(options);

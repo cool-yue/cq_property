@@ -27,7 +27,6 @@ export default {
 };
 </script>
 <style>
-
 .normal-button {
     display: inline-block;
     padding: 12px 20px;
@@ -41,7 +40,7 @@ export default {
     border-radius: 4px;
     cursor: pointer;
     box-sizing: border-box;
-    padding: 12px 23px;
+    padding: 0.5em 2.5em;
     border-radius: 20px;
     outline: 0;
 }

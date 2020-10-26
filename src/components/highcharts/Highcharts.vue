@@ -37,8 +37,10 @@ export default {
     methods: {
         initChart() {
             console.log(this.options);
-            this.$el.style.width = (this.styles.width || 800) + 'px';
-            this.$el.style.height = (this.styles.height || 400) + 'px';
+            console.log("styles", this.styles);
+            this.$el.style.width = (this.styles.width || 1500) + 'px';
+            this.$el.style.height = (this.styles.height || 320) + 'px';
+            console.log(this.$el);
             this.chart = new Highcharts.Chart(this.$el, this.options && JSON.parse(this.options));
         }
     }
@@ -46,7 +48,7 @@ export default {
 </script>
 <style>
 .highcharts__container {
-    width: 800px;
-    height: 400px;
+    width: 500px;
+    height: 320px;
 }
 </style>

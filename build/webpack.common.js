@@ -65,7 +65,8 @@ module.exports = {
         mainFiles: ['index'],
         alias: {
             "@compos": path.resolve(__dirname, "../src/components"),
-            "@config_management": path.resolve(__dirname, "../src/components/business/config_management")
+            "@config_management": path.resolve(__dirname, "../src/components/business/config_management"),
+            "@assets_statistics": path.resolve(__dirname, "../src/components/business/assets_statistics")
         }
     }
 };
