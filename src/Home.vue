@@ -7,7 +7,7 @@
         </div>
         <div class="p-header__divide">|</div>
         <div class="p-header__avatar">
-            <avatar icon="ios-person" size="large" style="color:white;margin-right:1rem;"></avatar>
+            <avatar icon="ios-person" size="large" :style="{color:'white', 'margin-right':'1rem'}"></avatar>
             <Dropdown trigger="click">
                 <a style="color:white;">admin<Icon type="md-arrow-dropright"></Icon></a>
                 <DropdownMenu slot="list">
@@ -174,6 +174,7 @@ html, body {
     background-color: white;
 }
 .p-header__avatar {
+    min-width: 120px;
     margin-left: auto;
     line-height: 74px;
 }

@@ -5,7 +5,7 @@
             :class="['top-nav__item', {'top-nav__item--active': i === activeItemIndex}]"
             @click="handleClick(item.text, i)"
         >
-            <p-icon :icon="item.src"></p-icon>
+            <p-icon :icon="item.src" class="top-nav__icon"></p-icon>
             <span class="top-nav__text">{{item.text}}</span>
         </div>
     </div>
@@ -62,8 +62,7 @@ export default {
     box-sizing: border-box;
     border: 1px solid transparent;
     border-radius: 16px;
-    font-size:1.2rem;
-    margin-right:1rem;
+    margin-right:10px;
     align-items: center;
 }
 .top-nav__item:hover {
@@ -90,4 +89,27 @@ export default {
 
 }
 .top-nav__text {}
+
+
+@media (max-width:1358px) {
+    .top-nav__icon {
+        display: none;
+    }
+    .top-nav__text{
+        padding-top: 15px;
+    }
+}
+
+@media (max-width:1518px) {
+    .top-nav__item {
+        padding-left:0;
+        padding-right:0;
+    }
+}
+
+@media (min-width:1680px) {
+    .top-nav__text {
+        font-size: 18px;
+    }
+}
 </style>
