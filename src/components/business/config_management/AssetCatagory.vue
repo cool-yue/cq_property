@@ -18,7 +18,6 @@
                     <a class="asset-catagory__update">编辑</a>
                     <a class="asset-catagory__delete">删除</a>
                 </template>
-
             </Table>
             <Page :total="50" style="float:right;margin-top:2rem;"></Page>
         </div>

@@ -22,7 +22,7 @@
             <side-nav :items="sideNavItems" @on-item-click="handleSideClick"></side-nav>
         </aside>
         <main class="p-main">
-            <component :is="currentCompo"></component>
+                <component :is="currentCompo"></component>
         </main>
     </section>
 </div>
@@ -32,13 +32,16 @@ import SideNav from "@compos/side_nav/SideNav.vue";
 import TopNav from "@compos/top_nav/TopNav.vue"
 import Tabs from "@compos/tabs/Tabs.vue";
 
-import AssetCatagory from "@config_management/AssetCatagory.vue";
-import ChartStatistics from "@assets_statistics/ChartStatistics.vue";
+import { compos } from "./components/business";
+import compoUtils from "./components/business";
+
+const componentsOption = {SideNav, TopNav, Tabs, ...compos};
 
 export default {
+    name: "Home",
     data() {
         return {
-            currentCompo: "AssetCatagory",
+            currentCompo: "AuthConfig",
             sideNavItems: [
                 {
                     text: "资产单位"
@@ -116,19 +119,17 @@ export default {
             }
         },
         handleSideClick(tabName) {
-            console.log("sideNav", tabName);
-            if (tabName === "报表统计") {
-                this.currentCompo = "ChartStatistics";
+            if (!compoUtils.getCompoByMenu(tabName)) {
+                console.log("没有找到组件");
+                return;
             }
+            this.currentCompo = compoUtils.getCompoByMenu(tabName);
         }
     },
-    components: {
-        SideNav,
-        TopNav,
-        Tabs,
-        AssetCatagory,
-        ChartStatistics
-    }
+    beforeCreate() {
+        console.log("$options", this.$options);
+    },
+    components: componentsOption
 };
 </script>
 <style>
