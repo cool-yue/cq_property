@@ -31,11 +31,14 @@
 import SideNav from "@compos/side_nav/SideNav.vue";
 import TopNav from "@compos/top_nav/TopNav.vue"
 import Tabs from "@compos/tabs/Tabs.vue";
+import NotFound from "./NotFound.vue";
 
 import { compos } from "./components/business";
 import compoUtils from "./components/business";
 
-const componentsOption = {SideNav, TopNav, Tabs, ...compos};
+import menu from "./menuConfig.js";
+
+const componentsOption = {SideNav, TopNav, Tabs, NotFound, ...compos};
 
 export default {
     name: "Home",
@@ -107,19 +110,11 @@ export default {
 
         },
         hanldeTopNavClick(tabName) {
-            if (tabName === "资产统计") {
-                this.sideNavItems = [
-                    {
-                        text: "报表统计"
-                    },
-                    {
-                        text: "地图统计"
-                    }
-                ];
-            }
+            this.sideNavItems = menu[tabName] || []
         },
         handleSideClick(tabName) {
             if (!compoUtils.getCompoByMenu(tabName)) {
+                this.currentCompo = NotFound;
                 console.log("没有找到组件");
                 return;
             }
