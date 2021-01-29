@@ -12,7 +12,6 @@ import DepreciationConfig from "./config_management/DepreciationConfig.vue";
 import ProcessConfig from "./config_management/ProcessConfig.vue";
 
 /**statistics */
-import ChartStatistics from "./assets_statistics/ChartStatistics.vue";
 
 
 
@@ -25,7 +24,6 @@ export const compos =  {
     AuthConfig,
     DepreciationConfig,
     ProcessConfig,
-    ChartStatistics
 };
 
 export const composMapping = {
@@ -37,9 +35,6 @@ export const composMapping = {
     "权限配置": "AuthConfig",
     "流程配置": "ProcessConfig"
 };
-
-
-
 
 function getCompoByMenu(menu) {
     return (

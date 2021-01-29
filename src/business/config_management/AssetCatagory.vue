@@ -127,8 +127,6 @@ export default {
     color: red;
 }
 
-
-
 .asset-catagory__buttons {
     margin-bottom: 1rem;
 }
@@ -138,8 +136,6 @@ export default {
     margin-right:1rem;
     line-height: 40px;
 }
-
-
 
 .asset-catagory .ivu-page-item-active a{
     color: white;

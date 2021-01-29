@@ -22,7 +22,7 @@
             <side-nav :items="sideNavItems" @on-item-click="handleSideClick"></side-nav>
         </aside>
         <main class="p-main">
-                <component :is="currentCompo"></component>
+            <component :is="currentCompo"></component>
         </main>
     </section>
 </div>
@@ -33,8 +33,8 @@ import TopNav from "@compos/top_nav/TopNav.vue"
 import Tabs from "@compos/tabs/Tabs.vue";
 import NotFound from "./NotFound.vue";
 
-import { compos } from "./components/business";
-import compoUtils from "./components/business";
+import { compos } from "./business";
+import compoUtils from "./business";
 
 import menu from "./menuConfig.js";
 
@@ -70,8 +70,8 @@ export default {
             ],
             topNavItems: [
                 {
-                    text: "配置管理",
-                    src: "#icon-peizhiguanli"
+                    text: "资产统计",
+                    src: "#icon-tongji"
                 },
                 {
                     text: "资产入库",
@@ -94,8 +94,8 @@ export default {
                     src: "#icon-jilu"
                 },
                 {
-                    text: "资产统计",
-                    src: "#icon-tongji"
+                    text: "配置管理",
+                    src: "#icon-peizhiguanli"
                 },
                 {
                     text: "系统日志",

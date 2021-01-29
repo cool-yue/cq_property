@@ -62,9 +62,7 @@ import Tabs from "./components/tabs/Tabs.vue";
 import SideNav from "./components/side_nav/SideNav.vue";
 import TopNav from "./components/top_nav/TopNav.vue";
 import PIcon from "./components/icons/Icon.vue";
-import HighCharts from "@compos/highcharts/Highcharts.vue";
-import Cprogress from "@compos/highcharts/Circle.vue";
-import options from "@compos/highcharts/chartOptions.js";
+
   export default {
     name:"App",
     data() {
@@ -73,7 +71,7 @@ import options from "@compos/highcharts/chartOptions.js";
         tabItems: ["景观", "公共设施", "厂房", "监测设备", "污水处理设备", "管网", "办公设备", "日常耗材", "其他"],
         navItems: [
           {
-            text: "资产单"
+            text: "资产单位"
           },
           {
             text: "资产分类"
@@ -96,9 +94,6 @@ import options from "@compos/highcharts/chartOptions.js";
         ],
           topItems: [
             {
-              text: "配置管理"
-            },
-            {
               text: "资产入库"
             },
             {
@@ -115,6 +110,9 @@ import options from "@compos/highcharts/chartOptions.js";
             },
             {
               text: "资产统计"
+            },
+            {
+              text: "配置管理"
             },
             {
               text: "系统日志"
@@ -148,10 +146,7 @@ import options from "@compos/highcharts/chartOptions.js";
       NormalButton,
       Tabs,
       SideNav,
-      TopNav,
-      PIcon,
-      HighCharts,
-      Cprogress
+      TopNav
     },
     beforeMount() {
       this.chartOptions = JSON.stringify(options);
