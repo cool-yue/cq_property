@@ -157,6 +157,7 @@ html, body {
 .p-section__main {
     flex: 1;
     display: flex;
+    width: 100%;
 }
 .p-sidebar {
     min-width: 150px;
@@ -168,6 +169,7 @@ html, body {
     flex: 1;
     padding: 4rem 1.5rem 0;
     background-color: white;
+    max-width: calc(100% - 150px);
 }
 .p-header__avatar {
     min-width: 120px;

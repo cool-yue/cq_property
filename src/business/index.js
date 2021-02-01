@@ -13,7 +13,8 @@ import ProcessConfig from "./config_management/ProcessConfig.vue";
 
 /**statistics */
 
-
+import TableStatistic from "./assets_statistic/table_statistic";
+import MapStatistic from "./assets_statistic/map_statistic";
 
 
 export const compos =  {
@@ -24,6 +25,8 @@ export const compos =  {
     AuthConfig,
     DepreciationConfig,
     ProcessConfig,
+    TableStatistic,
+    MapStatistic
 };
 
 export const composMapping = {
@@ -33,7 +36,9 @@ export const composMapping = {
     "资产来源": "AssetOrigin",
     "折旧配置": "DepreciationConfig",
     "权限配置": "AuthConfig",
-    "流程配置": "ProcessConfig"
+    "流程配置": "ProcessConfig",
+    "报表统计": "TableStatistic",
+    "地图统计": "MapStatistic"
 };
 
 function getCompoByMenu(menu) {
