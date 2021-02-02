@@ -66,7 +66,8 @@ module.exports = {
         alias: {
             "@compos": path.resolve(__dirname, "../src/components"),
             "@config_management": path.resolve(__dirname, "../src/business/config_management"),
-            "@assets_statistics": path.resolve(__dirname, "../src/business/assets_statistics")
+            "@assets_statistics": path.resolve(__dirname, "../src/business/assets_statistics"),
+            "@icons": path.resolve(__dirname, "../src/assets/icons")
         }
     }
 };

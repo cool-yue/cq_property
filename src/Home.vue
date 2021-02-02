@@ -115,7 +115,6 @@ export default {
         handleSideClick(tabName) {
             if (!compoUtils.getCompoByMenu(tabName)) {
                 this.currentCompo = NotFound;
-                console.log("没有找到组件");
                 return;
             }
             this.currentCompo = compoUtils.getCompoByMenu(tabName);

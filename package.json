@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "apexcharts": "^3.23.1",
+    "ol": "^6.5.0",
     "view-design": "^4.4.0",
     "vue": "^2.6.11",
     "vue-apexcharts": "^1.6.0"
